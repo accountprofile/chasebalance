@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Chase Mock Login</title>
   <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body, html {
       margin: 0;
       padding: 0;
@@ -19,6 +23,7 @@
       align-items: center;
       padding: 15px 30px;
       color: black;
+      flex-wrap: wrap;
     }
 
     .top-right-text {
@@ -34,6 +39,7 @@
       font-size: 0.9rem;
       border-bottom: 1px solid #ccc;
       white-space: nowrap;
+      overflow-x: auto;
     }
 
     .main-section {
@@ -42,19 +48,23 @@
       align-items: center;
       padding: 40px 10%;
       height: calc(100vh - 120px);
+      flex-wrap: wrap;
     }
 
     .headline {
       max-width: 500px;
+      margin-bottom: 20px;
     }
 
     .login-box {
       background: white;
       color: black;
       padding: 30px;
-      width: 300px;
+      width: 100%;
+      max-width: 300px;
       border-radius: 10px;
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      margin-bottom: 20px;
     }
 
     .login-box input {
@@ -128,6 +138,49 @@
     .transactions th {
       background-color: #e0e0e0;
     }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+
+      .top-links {
+        font-size: 0.8rem;
+        padding: 10px 15px;
+      }
+
+      .main-section {
+        flex-direction: column;
+        padding: 20px;
+        height: auto;
+      }
+
+      .headline {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .login-box {
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+      }
+
+      .account-box {
+        margin: 20px;
+        padding: 20px;
+      }
+
+      .account {
+        font-size: 0.9rem;
+      }
+
+      .top-right-text {
+        white-space: normal;
+      }
+    }
   </style>
 </head>
 <body>
@@ -143,16 +196,16 @@
   </div>
 
   <div class="main-section" id="mainSection">
-  <div style="background-color: #005eb8; color: white; padding: 30px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-bottom: 30px;">
-  <div style="font-size: 2rem; background: white; color: #005eb8; padding: 20px 30px; border-radius: 10px; font-weight: bold;">
-    Enjoy<br>$300
-  </div>
-  <div style="margin-left: 30px;">
-    <h2>New Chase checking customers</h2>
-    <p>Open a Chase Total Checking<sup>®</sup> account with qualifying activities.</p>
-    <button style="background-color: #2ecc71; color: white; border: none; padding: 10px 20px; font-size: 1rem; border-radius: 6px; cursor: pointer;">Open an account</button>
-  </div>
-</div>
+    <div style="background-color: #005eb8; color: white; padding: 30px; display: flex; justify-content: space-between; align-items: center; border-radius: 8px; margin-bottom: 30px; flex-wrap: wrap;">
+      <div style="font-size: 2rem; background: white; color: #005eb8; padding: 20px 30px; border-radius: 10px; font-weight: bold;">
+        Enjoy<br>$300
+      </div>
+      <div style="margin-left: 30px; max-width: 400px;">
+        <h2>New Chase checking customers</h2>
+        <p>Open a Chase Total Checking<sup>®</sup> account with qualifying activities.</p>
+        <button style="background-color: #2ecc71; color: white; border: none; padding: 10px 20px; font-size: 1rem; border-radius: 6px; cursor: pointer;">Open an account</button>
+      </div>
+    </div>
 
     <div class="headline">
       <h1>Sign in to check your offers</h1>
@@ -171,8 +224,9 @@
 
   <div class="account-box" id="accountBox">
     <div style="background-color: #ffe6e6; color: #cc0000; padding: 15px; border: 1px solid #cc0000; border-radius: 5px; margin-bottom: 20px;">
-  ⚠️ <strong>Account Frozen:</strong> Your access to account features is temporarily restricted due to suspicious activity. Please contact Chase Customer Service immediately to resolve this issue.
-</div>
+      ⚠️ <strong>Account Frozen:</strong> Your access to account features is temporarily restricted due to suspicious activity. Please contact Chase Customer Service immediately to resolve this issue.
+    </div>
+
     <div class="account" onclick="toggleTransactions('checking')">
       <h3>CHASE CHECKING (...1034)</h3>
       <p>Available balance</p>
@@ -182,9 +236,9 @@
           <tr><td>01/11/2019</td><td>Transfer to Savings</td><td>-$20,400.58</td></tr>
           <tr><td>01/11/2019</td><td>Transfer to Savings</td><td>-$400,000.58</td></tr>
           <tr><td>02/11/2019</td><td>Transfer to Savings</td><td>-$5,608.00</td></tr>
-		  <tr><td>04/11/2019</td><td>Transfer to Savings</td><td>-$39,800.00</td></tr>
-		  <tr><td>05/11/2019</td><td>Transfer to Savings</td><td>-$34,800.00</td></tr>
-		   <tr><td>21/10/2019</td><td>Inheritance</td><td>$640,591.00</td></tr>
+          <tr><td>04/11/2019</td><td>Transfer to Savings</td><td>-$39,800.00</td></tr>
+          <tr><td>05/11/2019</td><td>Transfer to Savings</td><td>-$34,800.00</td></tr>
+          <tr><td>21/10/2019</td><td>Inheritance</td><td>$640,591.00</td></tr>
         </table>
       </div>
     </div>
@@ -196,11 +250,11 @@
       <div class="transactions" id="savings">
         <table>
           <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
-		   <tr><td>01/11/2019</td><td>Transfer from Checking</td><td>$20,400.58</td></tr>
+          <tr><td>01/11/2019</td><td>Transfer from Checking</td><td>$20,400.58</td></tr>
           <tr><td>01/11/2019</td><td>Transfer from Checking</td><td>$400,000.58</td></tr>
           <tr><td>02/11/2019</td><td>Transfer from Checking</td><td>$5,608.00</td></tr>
-		  <tr><td>04/11/2019</td><td>Transfer from Checking</td><td>$39,800.00</td></tr>
-		  <tr><td>05/11/2019</td><td>Transfer from Checking</td><td>$34,800.00</td></tr>
+          <tr><td>04/11/2019</td><td>Transfer from Checking</td><td>$39,800.00</td></tr>
+          <tr><td>05/11/2019</td><td>Transfer from Checking</td><td>$34,800.00</td></tr>
         </table>
       </div>
     </div>
@@ -243,7 +297,6 @@
       document.getElementById("mainSection").style.display = "flex";
       document.getElementById("loginBox").style.display = "block";
 
-      // Hide all transaction tables
       const txns = document.querySelectorAll('.transactions');
       txns.forEach(t => t.style.display = 'none');
     }
