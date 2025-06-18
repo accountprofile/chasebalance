@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chase Account Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f0ff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .header {
+      background-color: #003b71;
+      color: white;
+      padding: 15px 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .account-box {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      margin: 20px auto;
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .account-title {
+      font-weight: bold;
+      color: #003b71;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .balance-label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    .balance-amount {
+      color: #008000;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 5px 0 15px;
+    }
+
+    .pay-link {
+      color: #007a33;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .pay-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">CHASE</div>
+
+  <div class="account-box">
+    <div class="account-title">CHASE CHECKING (...1234)</div>
+    <div class="balance-label">Available balance</div>
+    <div class="balance-amount">$3,983.34</div>
+    <a href="#" class="pay-link">Pay bills</a>
+  </div>
+
+  <div class="account-box">
+    <div class="account-title">CHASE SAVINGS (...5678)</div>
+    <div class="balance-label">Available balance</div>
+    <div class="balance-amount">$5,608.02</div>
+    <a href="#" class="pay-link">Pay bills</a>
+  </div>
+
+  <div class="account-box">
+    <div class="account-title">CREDIT CARD (...1234)</div>
+    <div class="balance-label">Outstanding balance</div>
+    <div class="balance-amount">$11,252.47</div>
+    <a href="#" class="pay-link">Pay credit card</a>
+  </div>
+
+</body>
+</html>
