@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chase Mock Login</title>
+  <title>Chase BankLogin</title>
   <style>
     *, *::before, *::after {
       box-sizing: border-box;
@@ -15,6 +15,34 @@
       font-family: Arial, sans-serif;
       height: 100vh;
       background: linear-gradient(to bottom, white 0%, white 25%, #002d72 25%, #003f91 75%, white 75%);
+    }
+
+    /* Preloader Styles */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .loader {
+      border: 8px solid #f3f3f3;
+      border-top: 8px solid #005eb8;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     header {
@@ -185,6 +213,11 @@
 </head>
 <body>
 
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+
   <header>
     <div class="logo"><img src="chase-logo.png" alt="Chase Logo" style="height: 20px;"></div>
     <div>Open an account | ATM & branch</div>
@@ -276,15 +309,19 @@
   </div>
 
   <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      preloader.style.display = "none";
+    });
+
     function login() {
       const username = document.getElementById("username").value.trim();
       const password = document.getElementById("password").value.trim();
 
-      if (username === "lawizzy" && password === "lillwayne") {
+      if (username === "EMILY" && password === "FOREIGNMANTI") {
         document.getElementById("loginBox").style.display = "none";
         document.getElementById("mainSection").style.display = "none";
         document.getElementById("accountBox").style.display = "block";
-        document.getElementById("userDisplay").textContent = username;
       } else {
         alert("Incorrect username or password");
       }
